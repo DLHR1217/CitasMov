@@ -6,11 +6,12 @@ import { registerUser } from "../../Src/Services/AuthService"; // ajusta el path
 export default function RegistroScreen({ navigation }) {
     const [nombre, setNombre] = useState("");
     const [email, setEmail] = useState("");
+    const [role, setRole] = useState("");
     const [password, setPassword] = useState("");
     const [confirmarPassword, setConfirmarPassword] = useState("");
 
     const handleRegister = async () => {
-        if (!nombre || !email || !password || !confirmarPassword) {
+        if (!nombre || !email || !role || !password || !confirmarPassword) {
             return Alert.alert("Error", "Todos los campos son obligatorios");
         }
 
@@ -18,7 +19,7 @@ export default function RegistroScreen({ navigation }) {
             return Alert.alert("Error", "Las contraseñas no coinciden");
         }
 
-        const result = await registerUser(nombre, email, password, confirmarPassword);
+        const result = await registerUser(nombre, email,role, password, confirmarPassword);
 
         if (result.success) {
             Alert.alert("Éxito", "Registro exitoso", [
@@ -46,6 +47,14 @@ export default function RegistroScreen({ navigation }) {
                 onChangeText={setEmail}
                 keyboardType="email-address"
                 autoCapitalize="none"
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Rol"
+                value={role}
+                onChangeText={setRole}
+                autoCapitalize="none"
+
             />
             <TextInput
                 style={styles.input}

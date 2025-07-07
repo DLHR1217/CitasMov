@@ -37,11 +37,12 @@ export const logoutUser = async () => {
     }
 }
 
-export const registerUser = async (name, email, password, password_confirmation) => {
+export const registerUser = async (name, email,role, password, password_confirmation) => {
     try {
-        const response = await api.post("/registro", {
+        const response = await api.post("/registrar", {
             name,
             email,
+            role,
             password,
             password_confirmation,
         });

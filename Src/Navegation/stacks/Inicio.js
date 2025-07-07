@@ -12,13 +12,13 @@ export default function InicioScreen() {
       <Text style={styles.status}>Estado: Habilitado</Text>
 
       <View style={styles.grid}>
-        <Card text="Citas" icon={<Ionicons name="calendar" size={30} color="#1976D2" />} onPress={() => navigation.navigate("Citas")} />
-        <Card text="Consultorio" icon={<MaterialIcons name="local-hospital" size={30} color="#1976D2" />} onPress={() => navigation.navigate("Consultorio")} />
-        <Card text="Especialidad" icon={<AntDesign name="profile" size={30} color="#1976D2" />} onPress={() => navigation.navigate("Especialidad")} />
-        <Card text="Horario Médico" icon={<MaterialIcons name="schedule" size={30} color="#1976D2" />} onPress={() => navigation.navigate("HorarioMedico")} />
-        <Card text="Médico" icon={<FontAwesome5 name="user-md" size={30} color="#1976D2" />} onPress={() => navigation.navigate("Medico")} />
-        <Card text="Paciente" icon={<Ionicons name="people" size={30} color="#1976D2" />} onPress={() => navigation.navigate("Paciente")} />
-        <Card text="Tipo Documento" icon={<AntDesign name="idcard" size={30} color="#1976D2" />} onPress={() => navigation.navigate("TipoDocumento")} />
+        <Card text="Citas" icon={<Ionicons name="calendar" size={30} color="#007B8C" />} onPress={() => navigation.navigate("Citas")} />
+        <Card text="Consultorio" icon={<MaterialIcons name="local-hospital" size={30} color="#007B8C" />} onPress={() => navigation.navigate("Consultorio")} />
+        <Card text="Especialidad" icon={<AntDesign name="profile" size={30} color="#007B8C" />} onPress={() => navigation.navigate("Especialidad")} />
+        <Card text="Horario Médico" icon={<MaterialIcons name="schedule" size={30} color="#007B8C" />} onPress={() => navigation.navigate("HorarioMedico")} />
+        <Card text="Médico" icon={<FontAwesome5 name="user-md" size={30} color="#007B8C" />} onPress={() => navigation.navigate("Medicos")} />
+        <Card text="Paciente" icon={<Ionicons name="people" size={30} color="#007B8C" />} onPress={() => navigation.navigate("Paciente")} />
+        <Card text="Tipo Documento" icon={<AntDesign name="idcard" size={30} color="#007B8C" />} onPress={() => navigation.navigate("TipoDocumento")} />
       </View>
     </View>
   );
@@ -36,15 +36,16 @@ function Card({ text, icon, onPress }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F9FAFB",
-    paddingHorizontal: 16,
+    backgroundColor: "#F5F5F5", // Igual que el primer bloque
+    paddingHorizontal: 20,
     paddingTop: 30,
   },
   title: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: "bold",
     textAlign: "center",
-    color: "#1976D2",
+    color: "#007B8C", // Azul verdoso oscuro
+    marginBottom: 10,
   },
   status: {
     fontSize: 16,
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
   },
   card: {
     width: "48%",
-    backgroundColor: "#fff",
+    backgroundColor: "#FFFFFF", // Blanco limpio
     borderRadius: 12,
     paddingVertical: 20,
     alignItems: "center",
@@ -78,3 +79,4 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 });
+

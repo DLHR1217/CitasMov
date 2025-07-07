@@ -24,10 +24,21 @@ function Tabs() {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: '#1976D2',
-        tabBarInactiveTintColor: '#757575',
-        tabBarStyle: { backgroundColor: '#fff' },
+        tabBarActiveTintColor: '#007B8C',       // Azul verdoso (activo)
+        tabBarInactiveTintColor: '#555555',     // Gris oscuro (inactivo)
+        tabBarStyle: {
+          backgroundColor: '#FFFFFF',           // Fondo blanco
+          borderTopColor: '#E0E0E0',            // Línea superior sutil
+          height: 60,
+          paddingBottom: 8,
+          paddingTop: 8,
+        },
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: '600',
+        },
       }}
+
     >
       <Tab.Screen
         name="Inicio"
@@ -69,10 +80,10 @@ export default function NavegacionPrincipal() {
       <Stack.Screen name="Citas" component={CitaStack} />
       <Stack.Screen name="Consultorio" component={ConsultorioStack} />
       <Stack.Screen name="Especialidad" component={EspecialidadStack} />
-      <Stack.Screen name="Horario Médico" component={HorarioMedicoStack} />
-      <Stack.Screen name="Médico" component={MedicoStack} />
+      <Stack.Screen name="HorarioMedico" component={HorarioMedicoStack} />
+      <Stack.Screen name="Medicos" component={MedicoStack} />
       <Stack.Screen name="Paciente" component={PacienteStack} />
-      <Stack.Screen name="Tipo Documento" component={TipoDocumentoStack} />
+      <Stack.Screen name="TipoDocumento" component={TipoDocumentoStack} />
     </Stack.Navigator>
   );
 }

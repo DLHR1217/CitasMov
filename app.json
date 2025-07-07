@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ClubMovil1.2",
-    "slug": "ClubMovil1.2",
+    "name": "CitasMovil",
+    "slug": "CitasMovil",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

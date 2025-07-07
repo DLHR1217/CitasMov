@@ -25,7 +25,7 @@ export default function LoginScreen({ navigation }) {
       } else {
         Alert.alert(
           "Error de Login",
-          result.message ||"Ocurrio un error al iniciar sesión."
+          result.message || "Ocurrio un error al iniciar sesión."
         );
       }
     } catch (error) {
@@ -51,7 +51,8 @@ export default function LoginScreen({ navigation }) {
         autoCapitalize="none"
         editable={!Loading}
 
-      />
+      /> 
+      
       <TextInput
         style={styles.input}
         placeholder="Contraseña"
