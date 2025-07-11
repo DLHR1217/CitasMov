@@ -7,8 +7,8 @@ export default function HorarioMedicoCard({ horario, onEdit, onDelete }) {
         <View style={styles.card}>
             <View style={styles.info}>
                 <Text style={styles.nombre}>Médico: {horario.medico?.nombre}</Text>
-                <Text style={styles.detalle}>Día: {horario.dia_semana}</Text>
-                <Text style={styles.detalle}>Hora: {horario.hora_inicio} - {horario.hora_fin}</Text>
+                <Text style={styles.detalle}>Día: {horario.dia}</Text>
+                <Text style={styles.detalle}>Hora: {horario.h_inicio} - {horario.h_final}</Text>
             </View>
             <View style={styles.actions}>
                 <TouchableOpacity onPress={onEdit} style={styles.iconBtn}>

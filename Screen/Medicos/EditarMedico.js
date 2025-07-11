@@ -11,7 +11,6 @@ export default function EditarMedico() {
     const medico = route.params?.medico;
 
     const [nombre, setNombre] = useState(medico?.nombre || "");
-    const [apellido, setApellido] = useState(medico?.apellido || "");
     const [especialidad_id, setEspecialidadId] = useState(medico?.especialidad_id?.toString() || "");
     const [especialidades, setEspecialidades] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -29,14 +28,14 @@ export default function EditarMedico() {
     const esEdicion = !!medico;
 
     const handleGuardar = async () => {
-        if (!nombre || !apellido || !especialidad_id) {
+        if (!nombre  || !especialidad_id) {
             Alert.alert("Por favor, complete todos los campos.");
             return;
         }
 
         setLoading(true);
         try {
-            const data = { nombre, apellido, especialidad_id: parseInt(especialidad_id) };
+            const data = { nombre, especialidad_id: parseInt(especialidad_id) };
             const result = esEdicion ? await editarMedico(medico.id, data) : await crearMedico(data);
 
             if (result.success) {
@@ -56,7 +55,6 @@ export default function EditarMedico() {
         <View style={styles.container}>
             <Text style={styles.titulo}>{esEdicion ? "Editar Médico" : "Crear Médico"}</Text>
             <TextInput style={styles.input} placeholder="Nombre" value={nombre} onChangeText={setNombre} />
-            <TextInput style={styles.input} placeholder="Apellido" value={apellido} onChangeText={setApellido} />
             <Picker selectedValue={especialidad_id} onValueChange={setEspecialidadId} style={styles.input}>
                 <Picker.Item label="Seleccione especialidad" value="" />
                 {especialidades.map(e => (

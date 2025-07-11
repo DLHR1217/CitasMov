@@ -7,7 +7,7 @@ export default function PacienteCard({ paciente, onEdit, onDelete }) {
         <View style={styles.card}>
             <View style={styles.info}>
                 <Text style={styles.nombre}>{paciente.nombre} {paciente.apellido}</Text>
-                <Text style={styles.detalle}>Documento: {paciente.tipo_documento?.nombre} {paciente.documento}</Text>
+                <Text style={styles.detalle}>Documento: {paciente.tipo_documentos?.nombre} {paciente.numero_documento}</Text>
                 <Text style={styles.detalle}>Teléfono: {paciente.telefono}</Text>
             </View>
             <View style={styles.actions}>
@@ -23,40 +23,53 @@ export default function PacienteCard({ paciente, onEdit, onDelete }) {
 }
 
 const styles = StyleSheet.create({
-    card: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: '#FFFFFF',
-        padding: 16,
-        marginVertical: 8,
-        marginHorizontal: 16,
-        borderRadius: 12,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
-        elevation: 3,
-    },
-    info: {
-        flex: 1,
-    },
-    nombre: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: '#333',
-        marginBottom: 4,
-    },
-    detalle: {
-        fontSize: 14,
-        color: '#666',
-        marginBottom: 2,
-    },
-    actions: {
-        flexDirection: 'row',
-        marginLeft: 8,
-    },
-    iconBtn: {
-        marginLeft: 12,
-    },
+  card: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#ffffff",
+    padding: 16,
+    marginHorizontal: 16,
+    marginBottom: 12,
+    borderRadius: 16,
+    borderLeftWidth: 5,
+    borderLeftColor: "#007B8C",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.08,
+    shadowRadius: 6,
+    elevation: 3,
+  },
+  info: {
+    flex: 1,
+    paddingRight: 12,
+  },
+  nombre: {
+    fontSize: 18,
+    fontWeight: "600",
+    color: "#004D56",
+    marginBottom: 6,
+  },
+  detalle: {
+    fontSize: 14,
+    color: "#666",
+    marginBottom: 2,
+  },
+  actions: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  iconBtn: {
+    marginLeft: 12,
+    backgroundColor: "#F0F0F0",
+    padding: 10,
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
+  },
 });
+
+

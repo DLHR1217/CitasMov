@@ -8,7 +8,6 @@ export default function MedicoCard({ medico, onEdit, onDelete }) {
             <View style={styles.info}>
                 <Text style={styles.nombre}>{medico.nombre}</Text>
                 <Text style={styles.detalle}>Especialidad: {medico.especialidad?.nombre}</Text>
-                <Text style={styles.detalle}>Email: {medico.email}</Text>
             </View>
             <View style={styles.actions}>
                 <TouchableOpacity onPress={onEdit} style={styles.iconBtn}>

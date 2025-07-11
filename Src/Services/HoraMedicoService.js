@@ -1,6 +1,6 @@
 import api from "./conexion";
 
-export const ListarHorarioMedico = async () => {
+export const listarHorariosMedico = async () => {
     try {
         const response = await api.get("/listarHoMedicos");
         return { success: true, data: response.data };
@@ -13,7 +13,7 @@ export const ListarHorarioMedico = async () => {
     }
 };
 
-export const eliminarHoraMedico = async (id) => {
+export const eliminarHorarioMedico = async (id) => {
     try {
         await api.delete(`/eliminarHoMedicos/${id}`);
         return { success: true };
@@ -26,7 +26,7 @@ export const eliminarHoraMedico = async (id) => {
     }
 };
 
-export const crearHoraMedico = async (data) => {
+export const crearHorarioMedico = async (data) => {
     try {
         const response = await api.post("/crearHoMedicos", data);
         return { success: true, data: response.data };
@@ -39,7 +39,7 @@ export const crearHoraMedico = async (data) => {
     }
 };
 
-export const editarHoraMedico = async (id, data) => {
+export const editarHorarioMedico = async (id, data) => {
     try {
         const response = await api.put(`/editarHoMedicos/${id}`, data);
         return { success: true, data: response.data };

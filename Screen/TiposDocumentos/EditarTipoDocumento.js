@@ -51,99 +51,90 @@ export default function EditarTipoDocumento() {
 }
 
 const styles = StyleSheet.create({
-    view: {
-        flex: 1,
-        padding: 20,
-        backgroundColor: "#fff",
-    },              
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: "#f2f2f2",
+  },
 
-    titulo: {
-        fontSize: 24,
-        fontWeight: "bold",
-        marginBottom: 20,
-        textAlign: "center",
-    },
-    input: {
-        height: 40,
-        borderColor: "#ccc",
-        borderWidth: 1,
-        borderRadius: 5,
-        paddingHorizontal: 10,
-        marginBottom: 15,
-    },
-    boton: {
-        backgroundColor: "#007BFF",
-        padding: 15,
-        borderRadius: 5,
-        alignItems: "center",
-    },
-    botonTexto: {
-        color: "#fff",
-        fontSize: 16,
-        fontWeight: "bold",
-    },
-    container: {
-        flex: 1,
-        padding: 20,
-        backgroundColor: "#fff",
-    },
-    titulo: {
-        fontSize: 24,
-        fontWeight: "bold",
-        marginBottom: 20,
-        textAlign: "center",
-    },
-    input: {
-        height: 40,
-        borderColor: "#ccc",
-        borderWidth: 1,
-        borderRadius: 5,
-        paddingHorizontal: 10,
-        marginBottom: 15,
-    },
-    boton: {
-        backgroundColor: "#007BFF",
-        padding: 15,
-        borderRadius: 5,
-        alignItems: "center",
-    },
-    botonTexto: {
-        color: "#fff",
-        fontSize: 16,
-        fontWeight: "bold",
-    },
-    error: {
-        color: "red",
-        marginTop: 10,
-        textAlign: "center",
-    },
-    loading: {
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
-    },
-    loadingText: {
-        color: "#fff",
-        fontSize: 18,
-        marginBottom: 10,
-    },
-    botonCargando: {
-        backgroundColor: "#ccc",
-        padding: 15,
-        borderRadius: 5,
-        alignItems: "center",
-    },
-    botonTextoCargando: {
-        color: "#fff",
-        fontSize: 16,
-        fontWeight: "bold",
-    },
-    
+  titulo: {
+    fontSize: 26,
+    fontWeight: "bold",
+    color: "#007B8C",
+    marginBottom: 24,
+    textAlign: "center",
+  },
 
+  input: {
+    height: 48,
+    backgroundColor: "#fff",
+    borderColor: "#007B8C",
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingHorizontal: 15,
+    marginBottom: 16,
+    fontSize: 16,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 3,
+    elevation: 2,
+  },
 
+  boton: {
+    backgroundColor: "#007B8C",
+    paddingVertical: 14,
+    borderRadius: 12,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 4,
+  },
+
+  botonTexto: {
+    color: "#fff",
+    fontSize: 17,
+    fontWeight: "600",
+  },
+
+  error: {
+    color: "#D32F2F",
+    marginTop: 10,
+    textAlign: "center",
+    fontSize: 14,
+  },
+
+  loading: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.4)",
+    zIndex: 10,
+  },
+
+  loadingText: {
+    color: "#fff",
+    fontSize: 18,
+    marginBottom: 10,
+  },
+
+  botonCargando: {
+    backgroundColor: "#B0BEC5",
+    paddingVertical: 14,
+    borderRadius: 12,
+    alignItems: "center",
+  },
+
+  botonTextoCargando: {
+    color: "#fff",
+    fontSize: 17,
+    fontWeight: "600",
+  },
 });
+

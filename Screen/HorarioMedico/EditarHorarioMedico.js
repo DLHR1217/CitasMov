@@ -12,8 +12,8 @@ export default function EditarHorarioMedico() {
 
     const [medico_id, setMedicoId] = useState(horario?.medico_id?.toString() || "");
     const [dia, setDia] = useState(horario?.dia || "");
-    const [hora_inicio, setHoraInicio] = useState(horario?.hora_inicio || "");
-    const [hora_fin, setHoraFin] = useState(horario?.hora_fin || "");
+    const [h_inicio, setHoraInicio] = useState(horario?.h_inicio || "");
+    const [h_final, setHoraFin] = useState(horario?.h_final || "");
     const [loading, setLoading] = useState(false);
     const [medicos, setMedicos] = useState([]);
 
@@ -28,14 +28,14 @@ export default function EditarHorarioMedico() {
     const esEdicion = !!horario;
 
     const handleGuardar = async () => {
-        if (!medico_id || !dia || !hora_inicio || !hora_fin) {
+        if (!medico_id || !dia || !h_inicio || !h_final) {
             Alert.alert("Todos los campos son obligatorios.");
             return;
         }
 
         setLoading(true);
         try {
-            const datos = { medico_id: parseInt(medico_id), dia, hora_inicio, hora_fin };
+            const datos = { medico_id: parseInt(medico_id), dia, h_inicio, h_final };
             const result = esEdicion
                 ? await editarHorarioMedico(horario.id, datos)
                 : await crearHorarioMedico(datos);
@@ -63,8 +63,8 @@ export default function EditarHorarioMedico() {
                 ))}
             </Picker>
             <TextInput style={styles.input} placeholder="Día (ej: Lunes)" value={dia} onChangeText={setDia} />
-            <TextInput style={styles.input} placeholder="Hora inicio (ej: 08:00)" value={hora_inicio} onChangeText={setHoraInicio} />
-            <TextInput style={styles.input} placeholder="Hora fin (ej: 12:00)" value={hora_fin} onChangeText={setHoraFin} />
+            <TextInput style={styles.input} placeholder="Hora inicio (ej: 08:00)" value={h_inicio} onChangeText={setHoraInicio} />
+            <TextInput style={styles.input} placeholder="Hora fin (ej: 12:00)" value={h_final} onChangeText={setHoraFin} />
             <TouchableOpacity style={styles.boton} onPress={handleGuardar} disabled={loading}>
                 {loading ? <ActivityIndicator color="#fff" /> : <Text style={styles.botonTexto}>{esEdicion ? "Actualizar" : "Crear"}</Text>}
             </TouchableOpacity>

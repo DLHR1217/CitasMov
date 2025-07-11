@@ -67,7 +67,7 @@ export default function ListarPaciente() {
   if (loading) {
     return (
       <View style={styles.centered}>
-        <ActivityIndicator size="large" color="#1976D2" />
+        <ActivityIndicator size="large" color="#007B8C" />
       </View>
     );
   }
@@ -98,26 +98,34 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fff",
+    backgroundColor: "#f2f2f2", // Fondo suave para coherencia visual
   },
   empty: {
     textAlign: "center",
-    marginTop: 20,
+    marginTop: 30,
     fontSize: 16,
-    color: "#666",
+    color: "#999",
+    fontStyle: "italic",
   },
   boton: {
     position: "absolute",
-    bottom: 20,
-    right: 20,
-    backgroundColor: "#1976D2",
-    padding: 15,
-    borderRadius: 50,
-    elevation: 5,
+    bottom: 24,
+    right: 24,
+    backgroundColor: "#007B8C",
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+    borderRadius: 32,
+    elevation: 6,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
   },
   botonTexto: {
     color: "#fff",
-    fontSize: 16,
-    fontWeight: "bold",
+    fontSize: 17,
+    fontWeight: "600",
+    textAlign: "center",
   },
 });
+
