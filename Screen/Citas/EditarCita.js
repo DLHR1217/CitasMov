@@ -101,32 +101,60 @@ export default function EditarCita() {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 20,
-        backgroundColor: "#fff",
-    },
-    titulo: {
-        fontSize: 24,
-        fontWeight: "bold",
-        marginBottom: 20,
-    },
-    input: {
-        height: 40,
-        borderColor: "#ccc",
-        borderWidth: 1,
-        borderRadius: 5,
-        paddingHorizontal: 10,
-        marginBottom: 15,
-    },
-    boton: {
-        backgroundColor: "#007BFF",
-        paddingVertical: 10,
-        borderRadius: 5,
-    },
-    botonTexto: {
-        color: "#fff",
-        textAlign: "center",
-        fontSize: 16,
-    },
+  container: {
+    flex: 1,
+    padding: 24,
+    backgroundColor: "#f9f9f9",
+  },
+  titulo: {
+    fontSize: 26,
+    fontWeight: "bold",
+    color: "#007B8C",
+    marginBottom: 24,
+    textAlign: "center",
+  },
+  input: {
+    height: 48,
+    backgroundColor: "#fff",
+    borderColor: "#007B8C",
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    marginBottom: 18,
+    fontSize: 16,
+    color: "#333",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 3,
+    elevation: 2,
+  },
+  boton: {
+    backgroundColor: "#007B8C",
+    paddingVertical: 14,
+    borderRadius: 12,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 4,
+  },
+  botonTexto: {
+    color: "#fff",
+    fontSize: 17,
+    fontWeight: "600",
+  },
 });
+
+
+
+
+
+
+
+
+
+
+
+

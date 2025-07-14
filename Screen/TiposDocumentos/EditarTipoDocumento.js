@@ -54,56 +54,58 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "#e9f1f1", // un tono más suave que #f2f2f2
   },
 
   titulo: {
     fontSize: 26,
     fontWeight: "bold",
     color: "#007B8C",
-    marginBottom: 24,
+    marginBottom: 28,
     textAlign: "center",
   },
 
   input: {
-    height: 48,
+    height: 50,
     backgroundColor: "#fff",
     borderColor: "#007B8C",
     borderWidth: 1,
     borderRadius: 12,
     paddingHorizontal: 15,
-    marginBottom: 16,
+    marginBottom: 18,
     fontSize: 16,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.05,
-    shadowRadius: 3,
+    shadowOpacity: 0.06,
+    shadowRadius: 4,
     elevation: 2,
   },
 
   boton: {
     backgroundColor: "#007B8C",
-    paddingVertical: 14,
+    paddingVertical: 15,
     borderRadius: 12,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 4,
+    shadowRadius: 5,
+    elevation: 3,
   },
 
   botonTexto: {
     color: "#fff",
     fontSize: 17,
     fontWeight: "600",
+    letterSpacing: 0.5,
   },
 
   error: {
     color: "#D32F2F",
-    marginTop: 10,
+    marginBottom: 12,
     textAlign: "center",
     fontSize: 14,
+    fontWeight: "500",
   },
 
   loading: {
@@ -122,11 +124,12 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 18,
     marginBottom: 10,
+    fontWeight: "500",
   },
 
   botonCargando: {
-    backgroundColor: "#B0BEC5",
-    paddingVertical: 14,
+    backgroundColor: "#90A4AE",
+    paddingVertical: 15,
     borderRadius: 12,
     alignItems: "center",
   },
@@ -137,4 +140,5 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
 });
+
 

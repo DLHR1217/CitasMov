@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ActivityIndicator,
   Alert,
+  ScrollView,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import BotonComponent from "../../components/BottonComponent";
@@ -28,56 +29,22 @@ export default function PantallaPerfil({ navigation }) {
         console.log("Intentando cargar perfil con token:", token);
         const response = await api.get("/me");
         console.log("Respuesta del perfil:", response.data);
-        setUsuario(response.data);
+        setUsuario(response.data.user);
       } catch (error) {
         console.error("Error al cargar perfil:", error);
 
-        if (error.isAuthError || error.shouldRedirectToLogin) {
-          console.log("Error de autenticación manejado por el interceptor");
-          return;
-        }
+        const mensajeError =
+          error.response?.data?.message ||
+          "No se pudo cargar el perfil. Intenta nuevamente.";
 
-        if (error.response) {
-          console.log("Error del servidor:", error.response.status);
-          Alert.alert(
-            "Error del servidor",
-            `Error ${error.response.status}: ${error.response.data?.message || "No se pudo cargar el perfil"}`,
-            [
-              {
-                text: "OK",
-                onPress: async () => {
-                  await AsyncStorage.removeItem("userToken");
-                },
-              },
-            ]
-          );
-        } else if (error.request) {
-          Alert.alert(
-            "Error de conexión",
-            "No se pudo conectar con el servidor. Verifica tu conexión a internet.",
-            [
-              {
-                text: "OK",
-                onPress: async () => {
-                  await AsyncStorage.removeItem("userToken");
-                },
-              },
-            ]
-          );
-        } else {
-          Alert.alert(
-            "Error",
-            "Ocurrió un error inesperado al cargar el perfil.",
-            [
-              {
-                text: "OK",
-                onPress: async () => {
-                  await AsyncStorage.removeItem("userToken");
-                },
-              },
-            ]
-          );
-        }
+        Alert.alert("Error", mensajeError, [
+          {
+            text: "OK",
+            onPress: async () => {
+              await AsyncStorage.removeItem("userToken");
+            },
+          },
+        ]);
       } finally {
         setLoading(false);
       }
@@ -86,9 +53,14 @@ export default function PantallaPerfil({ navigation }) {
     cargarPerfil();
   }, []);
 
+  const handleLogout = async () => {
+    await logoutUser();
+    navigation.reset({ index: 0, routes: [{ name: "Login" }] });
+  };
+
   if (loading) {
     return (
-      <View style={styles.container}>
+      <View style={styles.centered}>
         <ActivityIndicator size="large" color="#007B8C" />
       </View>
     );
@@ -96,74 +68,87 @@ export default function PantallaPerfil({ navigation }) {
 
   if (!usuario) {
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Perfil de Usuario</Text>
-        <View style={styles.ContainerPerfil}>
-          <Text style={styles.errorText}>No se pudo cargar la información del perfil</Text>
-        </View>
+      <View style={styles.centered}>
+        <Text style={styles.errorText}>
+          No se pudo cargar la información del perfil
+        </Text>
       </View>
     );
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Perfil de Usuario</Text>
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.title}>👤 Perfil de Usuario</Text>
 
-      <View style={styles.ContainerPerfil}>
-        <Text style={styles.profileText}>
-          Nombre: {usuario.user?.name || "No disponible"}
-        </Text>
-        <Text style={styles.profileText}>
-          Email: {usuario.user?.email || "No disponible"}
-        </Text>
+      <View style={styles.profileBox}>
+        <Info label="Nombre" value={usuario.name} />
+        <Info label="Email" value={usuario.email} />
+        <Info label="Rol" value={usuario.role} />
       </View>
 
-      <BotonComponent title="Editar Perfil" onPress={() => {}} />
-      <BotonComponent
-        title="Cerrar Sesión"
-        onPress={async () => {
-         await logoutUser();
-          // AppNavegacion redirigirá automáticamente
-        }}
-      />
+      <BotonComponent title="Editar Perfil" onPress={() => Alert.alert("Editar perfil pronto disponible")} />
+      <BotonComponent title="Cerrar Sesión" onPress={handleLogout} />
+    </ScrollView>
+  );
+}
+
+function Info({ label, value }) {
+  return (
+    <View style={styles.infoItem}>
+      <Text style={styles.label}>{label}:</Text>
+      <Text style={styles.value}>{value || "No disponible"}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  centered: {
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F9FAFB",
     padding: 20,
-    backgroundColor: "#F2F2F2",
+  },
+  container: {
+    padding: 24,
+    backgroundColor: "#F9FAFB",
     justifyContent: "center",
   },
   title: {
+    fontSize: 24,
     fontWeight: "bold",
-    fontSize: 20,
-    color: "#007B8C", // Azul verdoso oscuro
-    marginBottom: 15,
+    color: "#007B8C",
     textAlign: "center",
+    marginBottom: 24,
   },
-  ContainerPerfil: {
-    width: "100%",
+  profileBox: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 12,
     padding: 20,
-    backgroundColor: "#FFFFFF", // Fondo blanco
-    borderRadius: 10,
+    marginBottom: 30,
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3, // Sombra para Android
-    marginBottom: 20,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 6,
+    elevation: 4,
   },
-  profileText: {
+  infoItem: {
+    marginBottom: 16,
+  },
+  label: {
+    fontSize: 15,
+    color: "#777",
+    fontWeight: "600",
+  },
+  value: {
     fontSize: 16,
-    color: "#333",
-    marginBottom: 10,
+    color: "#222",
+    marginTop: 4,
   },
   errorText: {
     fontSize: 16,
     color: "red",
     textAlign: "center",
+    paddingHorizontal: 20,
   },
 });

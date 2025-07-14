@@ -98,15 +98,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#f2f2f2", // Fondo suave para coherencia visual
+    backgroundColor: "#f9f9f9",
   },
+
   empty: {
     textAlign: "center",
-    marginTop: 30,
+    marginTop: 20,
     fontSize: 16,
-    color: "#999",
     fontStyle: "italic",
+    color: "#888",
   },
+
   boton: {
     position: "absolute",
     bottom: 24,
@@ -114,18 +116,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#007B8C",
     paddingVertical: 16,
     paddingHorizontal: 20,
-    borderRadius: 32,
-    elevation: 6,
+    borderRadius: 50,
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.2,
     shadowRadius: 6,
+    elevation: 6,
   },
+
   botonTexto: {
     color: "#fff",
-    fontSize: 17,
+    fontSize: 16,
     fontWeight: "600",
-    textAlign: "center",
   },
 });
 

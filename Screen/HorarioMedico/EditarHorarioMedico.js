@@ -73,30 +73,37 @@ export default function EditarHorarioMedico() {
 }
 
 const styles = StyleSheet.create({
-    centered: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#fff",
-    },
-    empty: {
-        textAlign: "center",
-        marginTop: 20,
-        fontSize: 16,
-        color: "#666",
-    },
-    boton: {
-        position: "absolute",
-        bottom: 20,
-        right: 20,
-        backgroundColor: "#1976D2",
-        padding: 15,
-        borderRadius: 50,
-        elevation: 5,
-    },
-    botonTexto: {
-        color: "#fff",
-        fontSize: 16,
-        fontWeight: "bold",
-    },
+  centered: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#f2f2f2",
+  },
+  empty: {
+    textAlign: "center",
+    marginTop: 20,
+    fontSize: 16,
+    color: "#888",
+    fontStyle: "italic",
+  },
+  boton: {
+    position: "absolute",
+    bottom: 24,
+    right: 24,
+    backgroundColor: "#007B8C",
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    borderRadius: 50,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 6,
+  },
+  botonTexto: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "600",
+  },
 });
+

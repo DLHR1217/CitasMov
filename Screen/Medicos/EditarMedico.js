@@ -28,7 +28,7 @@ export default function EditarMedico() {
     const esEdicion = !!medico;
 
     const handleGuardar = async () => {
-        if (!nombre  || !especialidad_id) {
+        if (!nombre || !especialidad_id) {
             Alert.alert("Por favor, complete todos los campos.");
             return;
         }
@@ -55,7 +55,7 @@ export default function EditarMedico() {
         <View style={styles.container}>
             <Text style={styles.titulo}>{esEdicion ? "Editar Médico" : "Crear Médico"}</Text>
             <TextInput style={styles.input} placeholder="Nombre" value={nombre} onChangeText={setNombre} />
-            <Picker selectedValue={especialidad_id} onValueChange={setEspecialidadId} style={styles.input}>
+            <Picker selectedValue={especialidad_id} onValueChange={setEspecialidadId} style={[styles.input, styles.picker]}  >
                 <Picker.Item label="Seleccione especialidad" value="" />
                 {especialidades.map(e => (
                     <Picker.Item key={e.id} label={e.nombre} value={e.id.toString()} />
@@ -69,32 +69,66 @@ export default function EditarMedico() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+    container: {
         flex: 1,
-        padding: 20,
-        backgroundColor: "#fff",
+        padding: 24,
+        backgroundColor: "#f0f4f8",
     },
+
     titulo: {
-        fontSize: 24,
-        fontWeight: "bold",
-        marginBottom: 20,
+        fontSize: 28,
+        fontWeight: "700",
+        color: "#007B8C",
+        marginBottom: 28,
+        textAlign: "center",
     },
+
     input: {
-        height: 40,
-        borderColor: "#ccc",
+        height: 50,
+        backgroundColor: "#ffffff",
+        borderColor: "#007B8C",
         borderWidth: 1,
-        borderRadius: 5,
+        borderRadius: 14,
+        paddingHorizontal: 18,
+        marginBottom: 20,
+        fontSize: 16,
+        color: "#333",
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.05,
+        shadowRadius: 3,
+        elevation: 2,
+    },
+
+    picker: {
+        height: 50,
+        backgroundColor: "#ffffff",
+        borderColor: "#007B8C",
+        borderWidth: 1,
+        borderRadius: 14,
         paddingHorizontal: 10,
-        marginBottom: 15,
+        marginBottom: 20,
+        justifyContent: "center",
+        fontSize: 16,
+        elevation: 2,
     },
+
     boton: {
-        backgroundColor: "#007BFF",
-        paddingVertical: 10,
-        borderRadius: 5,
+        backgroundColor: "#007B8C",
+        paddingVertical: 16,
+        borderRadius: 14,
+        alignItems: "center",
+        marginTop: 10,
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 5,
+        elevation: 4,
     },
+
     botonTexto: {
         color: "#fff",
-        textAlign: "center",
-        fontSize: 16,
+        fontSize: 18,
+        fontWeight: "600",
     },
 });

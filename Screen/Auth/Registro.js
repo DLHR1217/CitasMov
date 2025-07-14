@@ -81,24 +81,36 @@ export default function RegistroScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        padding: 16,
-        backgroundColor: "#f5f5f5",
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: "bold",
-        marginBottom: 24,
-        textAlign: "center",
-    },
-    input: {
-        height: 50,
-        borderColor: "#ccc",
-        borderWidth: 1,
-        borderRadius: 8,
-        paddingHorizontal: 16,
-        marginBottom: 16,
-    },
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    padding: 20,
+    backgroundColor: "#f2f2f2",
+  },
+
+  title: {
+    fontSize: 26,
+    fontWeight: "bold",
+    color: "#007B8C",
+    marginBottom: 28,
+    textAlign: "center",
+  },
+
+  input: {
+    height: 48,
+    backgroundColor: "#fff",
+    borderColor: "#007B8C",
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    marginBottom: 18,
+    fontSize: 16,
+    color: "#333",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 3,
+    elevation: 2,
+  },
 });
+

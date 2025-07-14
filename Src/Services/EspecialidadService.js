@@ -1,10 +1,12 @@
-import api from "./conexion";
+import api from "./conexion"; // Importa la instancia de Axios configurada para hacer peticiones a la API
 
+//  Listar todas las especialidades desde el backend
 export const listarEspecialidades = async () => {
     try {
-        const response = await api.get("/listarEspecialidad");
-        return { success: true, data: response.data };
+        const response = await api.get("/listarEspecialidad"); // Petición GET a la ruta correspondiente
+        return { success: true, data: response.data }; // Retorna los datos obtenidos
     } catch (error) {
+        // Captura y muestra cualquier error
         console.error("Error al listar especialidades:", error.response ? error.response.data : error.message);
         return {
             success: false,
@@ -13,16 +15,17 @@ export const listarEspecialidades = async () => {
     }
 };
 
+//  Eliminar una especialidad por su ID
 export const eliminarEspecialidad = async (id) => {
     try {
-        await api.delete(`/eliminarEspecialidad/${id}`);
-        return { success: true };
+        await api.delete(`/eliminarEspecialidad/${id}`); // Petición DELETE al endpoint con el ID
+        return { success: true }; // Éxito sin necesidad de retornar data
     } catch (error) {
         console.error("Error al eliminar especialidad:", error.response ? error.response.data : error.message);
 
         const rawMessage = error.response?.data?.message || "";
 
-        // Verificamos si es un error por clave foránea
+        // Detecta si el error es por clave foránea (relaciones con otros registros)
         const esClaveForanea = rawMessage.includes("SQLSTATE[23000]");
 
         return {
@@ -34,11 +37,11 @@ export const eliminarEspecialidad = async (id) => {
     }
 };
 
-
+//  Crear una nueva especialidad
 export const crearEspecialidad = async (data) => {
     try {
-        const response = await api.post("/crearEspecialidad", data);
-        return { success: true, data: response.data };
+        const response = await api.post("/crearEspecialidad", data); // Envía los datos como cuerpo de la solicitud POST
+        return { success: true, data: response.data }; // Retorna los datos del nuevo registro
     } catch (error) {
         console.error("Error al crear especialidad:", error.response ? error.response.data : error.message);
         return {
@@ -48,10 +51,11 @@ export const crearEspecialidad = async (data) => {
     }
 };
 
+//  Editar una especialidad existente por su ID
 export const editarEspecialidad = async (id, data) => {
     try {
-        const response = await api.put(`/editarEspecialidad/${id}`, data);
-        return { success: true, data: response.data };
+        const response = await api.put(`/editarEspecialidad/${id}`, data); // PUT con ID en la URL y datos en el body
+        return { success: true, data: response.data }; // Retorna datos actualizados
     } catch (error) {
         console.error("Error al editar especialidad:", error.response ? error.response.data : error.message);
         return {

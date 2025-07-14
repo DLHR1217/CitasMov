@@ -98,26 +98,35 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fff",
+    backgroundColor: "#f9f9f9",
   },
+
   empty: {
     textAlign: "center",
     marginTop: 20,
     fontSize: 16,
-    color: "#666",
+    fontStyle: "italic",
+    color: "#888",
   },
+
   boton: {
     position: "absolute",
-    bottom: 20,
-    right: 20,
-    backgroundColor: "#1976D2",
-    padding: 15,
+    bottom: 24,
+    right: 24,
+    backgroundColor: "#007B8C",
+    paddingVertical: 16,
+    paddingHorizontal: 20,
     borderRadius: 50,
-    elevation: 5,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 6,
   },
+
   botonTexto: {
     color: "#fff",
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: "600",
   },
 });
